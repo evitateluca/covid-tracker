@@ -5,6 +5,12 @@
     display: flex;
     flex-direction: row;
 }
+
+.height-img {
+	height: auto;
+	width: 270px;
+}
+
 .col-lingua {
     display: flex;
     flex-direction: row;
