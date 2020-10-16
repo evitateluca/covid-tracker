@@ -1,0 +1,206 @@
+<!doctype html>
+
+<html lang="it">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>COVID-19 Tracker</title>
+    <meta name="description" content="Codiv-19 Tracker">
+    
+
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css" 
+        integrity="sha512-ZRv40llEogRmoWgZwnsqke3HNzJ0kiI0+pcMgiz2bxO6Ew1DVBtWjVn0qjrXdT3+u+pSN36gLgmJiiQ3cQtyzA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" 
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+
+    
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-78743367-2', { 'anonymize_ip': true });
+    </script>
+
+</head>
+
+<body>
+
+    <header style="margin-top: 2rem;">
+        <div class="container is-fluid">
+            <div class="columns">
+                <div class="column is-1">
+                    <figure class="image is-96x96">
+                        <img src="img/icona.png">
+                    </figure>
+                </div>
+                <div class="column colonna_titolo">
+                    <h1 class="title is-1">COVID-19 Tracker</h1>
+                </div>
+                <div class="column is-2 col-switch-lingua">
+                    <div class="col-lingua">
+                        <div class="btn-lingua active" data-lang="it">
+                            <img src="img/flags/it.png">
+                            <span>IT</span>
+                        </div>
+                    </div>
+                    <div class="col-lingua">
+                        <div class="btn-lingua" data-lang="en">
+                            <img src="img/flags/en.png">
+                            <span>EN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- <section style="margin-top: 2rem; margin-bottom: 2rem;">
+        <div class="container is-fluid">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="subtitle is-4" style="margin-bottom:.5rem;">
+                        <span data-i18n="c19ti_subtitle_p1"></span> 
+                        <span>COVID-19</span> 
+                        <span data-i18n="c19ti_subtitle_p2"></span>
+                        <b id="data_aggiornamento"></b>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section>
+        <div class="container is-fluid">
+            <div class="columns padre_colonne_riassunto">
+                <div class="column is-2">
+                    <div class="card">
+                        <div class="card-content" style="flex-direction: column;">
+                            <p class="title is-6" data-i18n="c19ti_filtro"></p>
+                            <div class="select">
+                                <select id="select_filtro"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card has-background-warning">
+                        <div class="card-content">
+                            <div class="statistica_singola">
+                                <i class="far fa-meh fa-3x"></i>
+                                <div>
+                                    <p>
+                                        <span data-i18n="c19ti_totale_casi"></span>
+                                        <span class="grassetto" id="numero_totale"></span>
+                                    </p>
+                                    <p>
+                                        <span class="grassetto" id="variazione_numero_totale"></span>
+                                        <span data-i18n="c19ti_variazione_ieri"></span>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card has-background-success">
+                        <div class="card-content">
+                            <div class="statistica_singola">
+                                <i class="far fa-smile fa-3x"></i>
+                                <div>
+                                    <p>
+                                        <span data-i18n="c19ti_dimessi_guariti"></span> 
+                                        <span class="grassetto" id="numero_guariti"></span>
+                                    </p>
+                                    <p>
+                                        <span class="grassetto" id="variazione_numero_guariti"></span>
+                                        <span data-i18n="c19ti_variazione_ieri"></span>
+                                    </p>
+                                    <p>
+                                        <span class="grassetto" id="percentuale_guariti_sul_totale"></span>
+                                        <span data-i18n="c19ti_text_rispetto_totale"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card has-background-danger">
+                        <div class="card-content">
+                            <div class="statistica_singola">
+                                <i class="far fa-sad-tear fa-3x"></i>
+                                <div>
+                                    <p>
+                                        <span data-i18n="c19ti_deceduti"></span> 
+                                        <span class="grassetto" id="numero_deceduti"></span></p>
+                                    <p>
+                                        <span class="grassetto" id="variazione_numero_deceduti"></span>
+                                        <span data-i18n="c19ti_variazione_ieri"></span>
+                                    </p>
+                                    <p>
+                                        <span class="grassetto" id="percentuale_deceduti_sul_totale"></span>
+                                        <span data-i18n="c19ti_text_rispetto_totale"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card has-background-link">
+                        <div class="card-content">
+                            <div class="statistica_singola">
+                                <i class="fas fa-virus fa-3x"></i>
+                                <div>
+                                    <p>
+                                        <span data-i18n="c19ti_terapia_intensiva"></span> 
+                                        <span class="grassetto" id="numero_terapia_intensiva"></span></p>
+                                    <p>
+                                        <span class="grassetto" id="variazione_numero_terapia_intensiva"></span>
+                                        <span data-i18n="c19ti_variazione_ieri"></span>
+                                    </p>
+                                    <p>
+                                        <span class="grassetto" id="percentuale_terapia_intensiva_sul_totale"></span>
+                                        <span data-i18n="c19ti_text_rispetto_totale"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container is-fluid" id="sezione_grafici"></div>
+    </section>
+
+    <footer class="footer">
+        <div class="container is-fluid">
+            <div class="content has-text-centered">
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js" 
+        integrity="sha512-BrvVYNhKh6yST24E5DY/LopLO5d+8KYmIXyrpBIJ2PK+CyyJw/cLSG/BfJomWLC1IblNrmiJWGlrGueKLd/Ekw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" 
+        integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.3/dayjs.min.js" 
+        integrity="sha512-u7elBfdMr+7LhU4rvUk3IM28QZDKTyUxba4Nx2IJ1W9cj4shfRSPq7EZXD2ULD9cBoizw2FQyeR6YBog6LcnHg==" crossorigin="anonymous"></script>
+    <!--Codice per la creazione della pagina-->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
