@@ -107,8 +107,19 @@ $(function (e) {
                     <div class="column is-full">
                         <p class="title is-4" data-i18n="${singolaStat.titolo}"></p>
                     </div>
-                    
-                    <div class="column is-full">
+                    <div class="column is-half">
+                        <div class="titolo">
+                            <p class="title is-5" data-i18n="c19ti_andamento_cumulativo"></p>
+                            <div class="sezione_bottoni">
+                                <button class="button is-small bottone btn_change_scala_grafico is-info is-light" 
+                                    data-progressivo="${index*2}" data-tipo="logarithmic">LOG</button>
+                                <button class="button is-small bottone btn_change_scala_grafico is-info" 
+                                    data-progressivo="${index*2}" data-tipo="linear">LIN</button>
+                            </div>
+                        </div>
+                        <canvas id="chart-${singolaStat.key}_cumulativo"></canvas>
+                    </div>
+                    <div class="column is-half">
                         <div class="titolo">
                             <p class="title is-5" data-i18n="c19ti_valori_singoli_giornalieri"></p>
                         </div>
@@ -123,20 +134,20 @@ $(function (e) {
         tutteStats.forEach(singolaStat => {
 
             //Creo il grafico per la visualizzazione cumulativa
-            // let graph1 = new Chart(document.getElementById(`chart-${singolaStat.key}_cumulativo`).getContext('2d'), {
-			// 	type: 'bar',
-			// 	responsive: true,
-            //     data: {
-            //         labels: objValori.date,
-            //         datasets: [{
-            //             data: objValori[`${singolaStat.key}_cumulativo`],
-            //             borderColor: singolaStat.color,
-            //             backgroundColor: singolaStat.backgroundColor,
-            //             lineTension: custom.lineTension
-            //         }],
-            //     },
-            //     options: custom.options
-            // });
+            let graph1 = new Chart(document.getElementById(`chart-${singolaStat.key}_cumulativo`).getContext('2d'), {
+				type: 'bar',
+				responsive: true,
+                data: {
+                    labels: objValori.date,
+                    datasets: [{
+                        data: objValori[`${singolaStat.key}_cumulativo`],
+                        borderColor: singolaStat.color,
+                        backgroundColor: singolaStat.backgroundColor,
+                        lineTension: custom.lineTension
+                    }],
+                },
+                options: custom.options
+            });
             //Creo il grafico per la visualizzazione giornaliera
             let graph2 = new Chart(document.getElementById(`chart-${singolaStat.key}_giornaliero`).getContext('2d'), {
 				type: 'bar',
