@@ -135,7 +135,8 @@ $(function (e) {
 
             //Creo il grafico per la visualizzazione cumulativa
             let graph1 = new Chart(document.getElementById(`chart-${singolaStat.key}_cumulativo`).getContext('2d'), {
-                type: 'line',
+				type: 'bar',
+				responsive: true,
                 data: {
                     labels: objValori.date,
                     datasets: [{
@@ -149,7 +150,8 @@ $(function (e) {
             });
             //Creo il grafico per la visualizzazione giornaliera
             let graph2 = new Chart(document.getElementById(`chart-${singolaStat.key}_giornaliero`).getContext('2d'), {
-                type: 'bar',
+				type: 'bar',
+				responsive: true,
                 data: {
                     labels: objValori.date,
                     datasets: [{
