@@ -134,20 +134,20 @@ $(function (e) {
         tutteStats.forEach(singolaStat => {
 
             //Creo il grafico per la visualizzazione cumulativa
-            // let graph1 = new Chart(document.getElementById(`chart-${singolaStat.key}_cumulativo`).getContext('2d'), {
-			// 	type: 'bar',
-			// 	responsive: true,
-            //     data: {
-            //         labels: objValori.date,
-            //         datasets: [{
-            //             data: objValori[`${singolaStat.key}_cumulativo`],
-            //             borderColor: singolaStat.color,
-            //             backgroundColor: singolaStat.backgroundColor,
-            //             lineTension: custom.lineTension
-            //         }],
-            //     },
-            //     options: custom.options
-            // });
+            let graph1 = new Chart(document.getElementById(`chart-${singolaStat.key}_cumulativo`).getContext('2d'), {
+				type: 'bar',
+				responsive: true,
+                data: {
+                    labels: objValori.date,
+                    datasets: [{
+                        data: objValori[`${singolaStat.key}_cumulativo`],
+                        borderColor: singolaStat.color,
+                        backgroundColor: singolaStat.backgroundColor,
+                        lineTension: custom.lineTension
+                    }],
+                },
+                options: custom.options
+            });
             //Creo il grafico per la visualizzazione giornaliera
             let graph2 = new Chart(document.getElementById(`chart-${singolaStat.key}_giornaliero`).getContext('2d'), {
 				type: 'bar',
