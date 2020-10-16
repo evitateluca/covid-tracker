@@ -21,12 +21,12 @@ $(function (e) {
         { key: "dimessi_guariti", titolo: "c19ti_dimessi_guariti", color: "#48C774", backgroundColor: "#cbffde"},
         { key: "deceduti", titolo:"c19ti_deceduti", color: "#F14668", backgroundColor: "#ffb9c6"},
         { key: "terapia_intensiva", titolo:"c19ti_terapia_intensiva", color: "#0066CC", backgroundColor: "#cce1ff"},
-        //{ key: "totale_attualmente_positivi", titolo:"Totale Attualmente Positivi"},
-        //{ key: "nuovi_attualmente_positivi", titolo:"Nuovi Attualmente Positivi"},
-        //{ key: "ricoverati_con_sintomi", titolo:"Ricoverati con sintomi"},
-        //{ key: "totale_ospedalizzati", titolo:"Totale Ospedalizzati"},
-        //{ key: "isolamento_domiciliare", titolo:"Isolamento Domiciliare"},
-        //{ key: "tamponi", titolo:"Tamponi"}
+        { key: "totale_attualmente_positivi", titolo:"Totale Attualmente Positivi"},
+        { key: "nuovi_attualmente_positivi", titolo:"Nuovi Attualmente Positivi"},
+        { key: "ricoverati_con_sintomi", titolo:"Ricoverati con sintomi"},
+        { key: "totale_ospedalizzati", titolo:"Totale Ospedalizzati"},
+        { key: "isolamento_domiciliare", titolo:"Isolamento Domiciliare"},
+        { key: "tamponi", titolo:"Tamponi"}
     ];
 
     //Funzione che mi traduce tutti i testi all'interno della pagina
