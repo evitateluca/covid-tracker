@@ -231,22 +231,17 @@ $(function (e) {
     }
 
     //Vado a scaricare i due JSON per andamento nazionale e regioni dal repository della protezione civile
-    $.getJSON(urlJsonAndamentoNazionale, (data) => {
-        
+    $.getJSON(urlJsonAndamentoNazionale, (data) => {       
         arrayDataNazionale = data;
-
         $.getJSON(urlJsonAndamentoRegioni, (data) => {
-
             arrayDataRegioni = data;
-            
             //Inizializzo la pagina con i valori nazionali
             compilaPaginaConValoriGrafici(arrayDataNazionale);
-
             //Creo la select per filtrare i dati
             creaSelectRegioni();
         })
     })
-
+    
     //Sento il change sulla select del filtro e aggiorno i dati che uso per creare la pagina
     $('#select_filtro').on('change', function(){
         //Devo andare a prendere l'array di valori giusto, eventualmente filtrarlo per quella regione
@@ -262,7 +257,6 @@ $(function (e) {
                     arrayDataRegioniFiltrato.push(singolo);
                 }
             });
-            
             compilaPaginaConValoriGrafici(arrayDataRegioniFiltrato);
         }
     });
