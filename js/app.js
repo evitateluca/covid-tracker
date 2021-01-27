@@ -133,7 +133,7 @@ $(function (e) {
         //  non riesce a prendere i div creati dinamicamente e quindi non riesce a creare i grafici
         tutteStats.forEach(singolaStat => {
 
-            //Creo il grafico per la visualizzazione cumulativa
+            // Creo il grafico per la visualizzazione cumulativa
             let graph1 = new Chart(document.getElementById(`chart-${singolaStat.key}_cumulativo`).getContext('2d'), {
 				type: 'bar',
 				responsive: true,
